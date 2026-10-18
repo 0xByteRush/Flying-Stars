@@ -1,5 +1,7 @@
 # Flying Stars Game
 
+[![Build](https://github.com/0xByteRush/Flying-Stars/actions/workflows/build.yml/badge.svg)](https://github.com/0xByteRush/Flying-Stars/actions/workflows/build.yml)
+
 ## Project Overview
 
 Flying Stars Game is an interactive JavaFX arcade-style game where players navigate a colored ball to touch stars with matching colors while avoiding incorrect color interactions.
@@ -44,31 +46,39 @@ Flying Stars Game is an interactive JavaFX arcade-style game where players navig
 
 ## Technical Details
 
-- **Language**: Java
-- **Framework**: JavaFX
-- **Data Persistence**: CSV file for player scores
-- **Key Classes**:
-  - `Star`: Star generation and interaction
-  - `Ball`: Player-controlled object
-  - `Player`: Player data management
-  - `Project`: Main game logic
+- **Language**: Java 21
+- **Framework**: JavaFX 21 (pulled in by Maven, no separate SDK install)
+- **Data Persistence**: CSV leaderboard at `~/.flying-stars/scores.csv`, created on first save
+- **Key Classes** (`src/main/java/flyingstars/`):
+  - `FlyingStars`: application entry point, screens and game loop
+  - `Star`: star generation and growth
+  - `Ball`: player-controlled ball
+  - `Player`: name/score record, sorted by score
+  - `ScoreFile`: loading and saving the leaderboard
 
 ## Setup and Running
 
 ### Prerequisites
-- Java Development Kit (JDK) 8 or higher
-- JavaFX SDK
+- JDK 21 or newer
+- Maven 3.9+ (or open the project in IntelliJ IDEA, which bundles Maven)
 
-### Steps
-1. Clone the repository
-2. Ensure JavaFX is configured in your IDE
-3. Set up the `namesScores.csv` file in the specified path
-4. Run the `Project` class
+### Run
+
+```bash
+mvn javafx:run
+```
+
+### Test
+
+```bash
+mvn verify
+```
 
 ## Contributors
 - Abdulaaziz AlKhatib
 - Yaseen AlYaseen
 - Hamza Ammous
 
-## Note
-The game's file paths are currently hardcoded and may need adjustment based on your local environment.
+## License
+
+[MIT](LICENSE)
